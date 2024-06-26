@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 3</title>
+</head>
+<body>
+
+<h2>Adicionar item à lista</h2>
+
+<div>
+    <label for="itemText">Texto do item:</label>
+    <input type="text" id="itemText">
+</div>
+
+<div>
+    <p>Escolha a cor do item:</p>
+    <input type="radio" id="red" name="cores" value="red">
+    <label for="red">Vermelho</label><br>
+    <input type="radio" id="green" name="cores" value="green">
+    <label for="green">Verde</label><br>
+    <input type="radio" id="blue" name="cores" value="blue">
+    <label for="blue">Azul</label>
+</div>
+
+<button id="addItemButton">Adicionar Item</button>
+
+<ul id="myList">
+  <li>Coffee</li>
+  <li>Tea</li>
+</ul>
+
+<script>
+    document.getElementById("addItemButton").addEventListener("click", function() {
+        const text = document.getElementById("itemText").value;
+        const color = document.querySelector('input[name="cores"]:checked').value;
+
+        const node = document.createElement("LI");
+        const textnode = document.createTextNode(text);
+
+        node.appendChild(textnode);
+        node.style.color = color;
+
+        document.getElementById("myList").appendChild(node);
+    });
+</script>
+
+</body>
+</html>
